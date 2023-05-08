@@ -251,28 +251,34 @@ void drawCV() {
           loadPixels();
         }
         float blobsize = blob.w * blob.h;
-        playSound(int(blob.x * destImg.width), int(blob.y * destImg.height), blobsize);        
+        //println(blobsize);
+        playSound(int(blob.x * destImg.width), int(blob.y * destImg.height), blob.w);        
       
       }
     }
   }
   
 void playSound(int x, int y, float size){
-  if (size < 0.3 && !file1.isPlaying()){
+  size = map(size%0.5, 0, 0.5, 0, 1);
+  if (size < 0.03 && !file1.isPlaying()){
     file1.amp(size);
     file1.play();
     println("played 1");
-  } else if (x < 100 && !file2.isPlaying()){
+    print(size);
+  } else if (x < 300 && !file2.isPlaying()){
     file2.amp(size);
     file2.play();
     println("played 2");
-  } else if (size > 0.5 && !file4.isPlaying()){
+    print(size);
+  } else if (size > 0.3 && !file4.isPlaying()){
     file4.amp(size);
     file4.play();
     println("played 4");
-  } else if (!file3.isPlaying()){
+    print(size);
+  } else if (size != 0 && !file3.isPlaying()){
     file3.amp(size);
     file3.play();
     println("played 3");
+    print(size);
   }
 }
