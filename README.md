@@ -1,13 +1,6 @@
 # silicone-skin-sensing
 Mutual capacitive touch silicone skin for Arduino and ESP-32 
 
----
-layout: post
-title:  "Electric Meat"
-date:   2023-05-08 22:40:30 -0500
-categories: general
----
-
 # a.k.a. I'm Fragile
 Mutual capacitive touch silicone skin for the ESP-32 and Arduino with computer vision and blob detection.
 
@@ -16,10 +9,10 @@ It also screams.
 Link to website [here](https://samiam2000.github.io/MeMakey/general/2023/05/09/electric-meat.html).
 
 
-![DSCF9061.JPG](/silicone-skin-sensing/pics/DSCF9061.JPG)
+![DSCF9061.JPG](/pics/DSCF9061.JPG)
 Layout
 
-![DSCF9067.JPG](/silicone-skin-sensing/pics/DSCF9067.JPG)
+![DSCF9067.JPG](/pics/DSCF9067.JPG)
 Close up of silicone skin
 
 ## Creative Vision
@@ -36,7 +29,7 @@ Having built the skin, I ran computer vision and blob detection to find instance
 
 I have built two versions of this project, one on an ESP-32 and another on the Arduino. As the ESP-32 only has 7 capactive touch sensors, I was limited by this number and could only create a simple 3*3 grid for 9 different sensing points on the ESP-32. This led to an image like this: (see below)
 
-![IMG_5492.jpg](/silicone-skin-sensing/pics/IMG_5492.jpg)
+![IMG_5492.jpg](/pics/IMG_5492.jpg)
 3*3 sensing grid on the ESP-32
 
 Video with 3*3 grid on ESP-32
@@ -66,28 +59,28 @@ The silicone pigment and flocking kit were used to make the silicone skin loook 
 
 First, I mixed the silicone and added pigment and flocking to get it to resemble human skin. There are a lot of tutorials for this online, the key is to add tiny bits of green and brown paint to tint the flesh colored base and add red, blue, green flocking to get the undertones of human skin. I then spread this very thinly on a layer of cardboard to make it matte. I had discovered from my previous trials that silicone doesn't really stick to cardboard and can be easily peeled off once cured. The same cannot be said for paper. This first layer is done without any conductive threads embedded within it so that the threads will not show through.
 
-![IMG_5415.jpg](/silicone-skin-sensing/pics/IMG_5415.jpg)
+![IMG_5415.jpg](/pics/IMG_5415.jpg)
 First layer of silicone
 
 Then I measured out even distances on the cardboard and used a needle to thread conductive thread through to create lines for one axis of the grid. I made 6 rows because the sensor I had had 12 sensors, so a 6*6 grid would work well.
 
-![IMG_5415.jpg](/silicone-skin-sensing/pics/IMG_5428.jpg)
+![IMG_5415.jpg](/pics/IMG_5428.jpg)
 Conductive thread layout 1
 
 I poured silicone thinly again to cover the threads and then layed on the second layer of threads that were perpendicular to the threads before.
 
-![IMG_5431.jpg](/silicone-skin-sensing/pics/IMG_5431.jpg)
+![IMG_5431.jpg](/pics/IMG_5431.jpg)
 Conductive thread layout 2
 
 Finally, I used a final layer of silcone to seal the threads in. After curing, the back of the silicone skin mat looks like this:
 
-![DSCF9064.JPG](/silicone-skin-sensing/pics/DSCF9064.JPG)
+![DSCF9064.JPG](/pics/DSCF9064.JPG)
 Back of silicone skin
 
 ## Hardware and technology
 After making the silicone skin, I soldered the 12 conductive threads to the capacitive touch pins on the breakout board. [These](https://learn.adafruit.com/adafruit-mpr121-12-key-capacitive-touch-sensor-breakout-tutorial/wiring) instructions are pretty helpful for setting up the 12-key breakout board.
 
-![DSCF9072.JPG](/silicone-skin-sensing/pics/DSCF9072.JPG)
+![DSCF9072.JPG](/pics/DSCF9072.JPG)
 Hardware setup
 
 The breakout board sends the level of each sensor back to the Arduino. Note that because I chose to use mutual capactance sensing here, I did not choose to use touch interupts because the sensors would constantly have a signal as they being used as charged capacitors. Instead, I made the breakout board send all the values of all the sensors at once, and through comparing the differences in charge, I would be able to figure out which parts on the siliicone skin had been touched. 
@@ -148,8 +141,8 @@ The breakout board that I used for the skin used I2C to communicate with the mic
 
 For my purposes, the computer vision and blob detection might have been a little unnecessary because I could have just used the area of the bright squares to calculate how loudly the computer should scream. However, I still chose to implement it because getting the computer vision and blob detection working meant that I could be able to detect what specific types of gestures and motions were being made by the user. Henceforth, it could function as an actual touch screen, just like the one on your smartphone.
 
-![DSCF9081.JPG](/silicone-skin-sensing/pics/DSCF9081.JPG)
+![DSCF9081.JPG](/pics/DSCF9081.JPG)
 Electric Meat in action
 
-![DSCF9099.JPG](/silicone-skin-sensing/pics/DSCF9099.JPG)
+![DSCF9099.JPG](/pics/DSCF9099.JPG)
 more Electric Meat
