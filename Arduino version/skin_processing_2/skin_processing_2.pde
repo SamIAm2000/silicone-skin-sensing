@@ -25,7 +25,7 @@ float thresholdBlob = 0.5f;
 int thresholdBlobMin = 150;
 int thresholdBlobMax = 255;
 
-int MIN_THRESHOLD = 45;
+int MIN_THRESHOLD = 40;
 int MAX_THRESHOLD = 125;
 
 int xvals = 6;
