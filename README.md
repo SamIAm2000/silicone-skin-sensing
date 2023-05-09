@@ -84,7 +84,7 @@ The breakout board sends the level of each sensor back to the Arduino. Note that
 
 The Arduino code sends the values of each of the 12 sensors through the serial protocol back to my computer, where I use Processing to process the values. I multiply the x values and y values respectively with each other to get 36 values for 36 points. This is stored in an integer array of size 36. This calculation is done in the getRawPoints() function.
 
-'''
+```
 int[] getRawPoints(int[] vals){
   int[] xvalues = new int[xvals];
     int[] yvalues = new int[yvals];
@@ -103,19 +103,19 @@ int[] getRawPoints(int[] vals){
     }
     return rawPoints;
 }
-'''
+```
 
 I also have another array that stores the average of 20 reads for calibration. Through comparing the raw points with the averaged points, I can find out which sensors have changed in value. I also have variables MIN_THRESHOLD and MAX_THRESHOLD that can be changed by the user depending on the sensitivity of the sensors. These thresholds determine how big of a change in charge will be detected as a touch.
-'''
+```
   for (int i = 0; i < squares; i++) {
     int temp = avgPoints[i]-rawPoints[i];
     temp = constrain(temp, MIN_THRESHOLD, MAX_THRESHOLD);
     adjPoints[i] = int(map(temp, MIN_THRESHOLD, MAX_THRESHOLD, 0, 255)); //map to grayscale
   }
-'''
+```
 
 For the visualization, I have a drawSquares function that visualizes the grid by drawing squares corresponding to the sensing grid. The brightness of the square is determined by the amount of change in the values sensed at that location.
-'''
+```
 void drawSquares() {
   skinGraphic.beginDraw();
   skinGraphic.noStroke();
@@ -130,7 +130,7 @@ void drawSquares() {
   }
   skinGraphic.endDraw();
 }
-'''
+```
 
 Finally, I ran the image produced through [computer vision](https://github.com/atduskgreg/opencv-processing) and [blob detection](http://www.v3ga.net/processing/BlobDetection/) to find shapes and then use the size of the shapes to determine how loudly the computer will scream.
 
