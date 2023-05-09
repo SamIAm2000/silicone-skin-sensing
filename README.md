@@ -1,6 +1,3 @@
-# silicone-skin-sensing
-Mutual capacitive touch silicone skin for Arduino and ESP-32 
-
 # a.k.a. I'm Fragile
 Mutual capacitive touch silicone skin for the ESP-32 and Arduino with computer vision and blob detection.
 
